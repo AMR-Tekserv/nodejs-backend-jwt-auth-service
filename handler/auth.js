@@ -4,7 +4,7 @@ const { User } = require('../models')
 
 module.exports = {
     auth: async function (req, res, next) {
-
+        console.log(req.user)
         try {
             const user = await User.findById(req.user.id).select('-password')
             res.json(user)
