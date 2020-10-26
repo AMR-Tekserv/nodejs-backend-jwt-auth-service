@@ -33,7 +33,7 @@ module.exports = {
                 return res.status(500).json({ errors: [{ msg: "Invalid Credentials" }] })
             }
 
-            const isMatch = await user.comparePassword(password)
+            const isMatch = await user.comparePassword(req.body.password)
 
             if (!isMatch) {
                 return res.status(500).json({ errors: [{ msg: "Invalid Credentials" }] })
